@@ -40,7 +40,8 @@ fn diagnostic_highlight_style(
         underline: Some(UnderlineStyle {
             color: Some(color),
             thickness: px(1.),
-            wavy: true,
+            style: gpui::DecorationStyle::Wavy,
+            ..Default::default()
         }),
         ..Default::default()
     }
@@ -1820,7 +1821,7 @@ impl<M: InputModeKind> Element for TextElement<M> {
             underline: Some(UnderlineStyle {
                 thickness: px(1.),
                 color: Some(text_color),
-                wavy: false,
+                ..Default::default()
             }),
             strikethrough: None,
         };
@@ -2801,7 +2802,7 @@ mod tests {
         let underline = UnderlineStyle {
             thickness: px(1.),
             color: Some(gpui::black()),
-            wavy: false,
+            ..Default::default()
         };
 
         let runs = [0..4, 4..10]
@@ -2829,7 +2830,7 @@ mod tests {
         let underline = UnderlineStyle {
             thickness: px(1.),
             color: Some(gpui::black()),
-            wavy: false,
+            ..Default::default()
         };
 
         let runs = split_run_for_ime_underline(
@@ -2856,7 +2857,7 @@ mod tests {
         let underline = UnderlineStyle {
             thickness: px(1.),
             color: Some(gpui::black()),
-            wavy: false,
+            ..Default::default()
         };
         let text = Rope::from("abcdef");
         let mask_len = MASK_CHAR.len_utf8();

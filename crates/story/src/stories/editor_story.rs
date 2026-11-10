@@ -121,7 +121,8 @@ impl EditorStory {
                             underline: Some(gpui::UnderlineStyle {
                                 color: Some(cx.theme().warning),
                                 thickness: gpui::px(2.),
-                                wavy: true,
+                                style: gpui::DecorationStyle::Wavy,
+                                ..Default::default()
                             }),
                             ..Default::default()
                         },
